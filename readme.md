@@ -36,7 +36,7 @@ To install `PGHist` as an extension, unpack the [pghist_extension.tar](https://g
 ```bash
 curl https://github.com/PGHist/PGHist/raw/main/extension/pghist_extension.tar | tar x -C $(pg_config --sharedir)/extension
 ```
-More info on page [download](https://pghist.org/download/)
+More info on page [Download](https://pghist.org/download/)
 
 ### Simple example ###
 
@@ -91,7 +91,7 @@ Documentation in file [documentation/documentation.html](https://htmlpreview.git
 *   **Condition (optional)** - when getting a list of changes, you specify a condition on the primary key or foreign key referencing the master table
 *   **Autocorrection** - when performing DDL operations on a table (alter table, create index, etc.), a trigger fires, that corrects the history keeping. When a table is deleted, its history is also deleted
 
-Overview on site [pghist.org](https://pghist.org/en/)
+Overview on site [pghist.org](https://pghist.org/)
 
 ### Support ### 
 

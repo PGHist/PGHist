@@ -2,7 +2,7 @@ create schema if not exists pghist;
 
 create or replace function pghist.pghist_version() returns varchar language plpgsql as $$
 begin
-  return '26.2';
+  return '26.3';
 end; $$;
 
 create table if not exists pghist.hist_transaction(
@@ -419,63 +419,80 @@ begin
 end;
 $$;
 
-create or replace function pghist.hist_event_ddl_command() returns event_trigger stable security definer language plpgsql as $$
-declare
-  v_table record;
+create or replace function pghist.hist_event_ddl_alter_table() returns event_trigger stable security definer language plpgsql as $$
 begin
-  for v_table in 	
-    select t.schema,t.name  
-      from pg_event_trigger_ddl_commands() e
-	  join pg_class c on c.oid=e.objid	  
-      join pghist.hist_table t on t.schema=quote_ident(e.schema_name) and t.name=quote_ident(c.relname)
-      where e.object_type='table' 
-  loop
-    perform pghist.hist_objects_refresh(v_table.schema, v_table.name);
-  end loop;
-  for v_table in 	
-    select t.schema,t.name,e.objid oid,a.attname column_name_old,e.objsubid column_num
-      from pg_event_trigger_ddl_commands() e
-	  join pg_class c on c.oid=e.objid     
-	  join pg_attribute a on a.attrelid=e.objid and a.attnum=e.objsubid
-      join pghist.hist_table t on t.schema=quote_ident(e.schema_name) and t.name=quote_ident(c.relname)
-      where e.object_type='table column' 
-  loop
-    perform pghist.hist_event_column_rename(v_table.schema, v_table.name, v_table.oid, v_table.column_name_old, v_table.column_num);
-    perform pghist.hist_objects_refresh(v_table.schema, v_table.name);
-  end loop;
-  for v_table in 	
-    select t.schema,t.name 
-     from pg_event_trigger_ddl_commands() e
-       join pg_index i on i.indexrelid=e.objid
-       join pg_class c on c.oid=i.indrelid
-       join pghist.hist_table t on t.schema=quote_ident(e.schema_name) and t.name=quote_ident(c.relname)
-       where e.object_type='index'
-  loop
-    perform pghist.hist_objects_refresh(v_table.schema, v_table.name);
-  end loop;
+  perform pghist.hist_event_column_rename(t.schema,t.name,e.objid,a.attname,e.objsubid)
+    from pg_event_trigger_ddl_commands() e
+    join pg_class c on c.oid=e.objid     
+	join pg_attribute a on a.attrelid=e.objid and a.attnum=e.objsubid
+    join pghist.hist_table t on t.schema=quote_ident(e.schema_name) and t.name=quote_ident(c.relname)
+    where e.object_type='table column'; 
+  perform pghist.hist_objects_refresh(t.schema,t.name)  
+    from pg_event_trigger_ddl_commands() e
+	join pg_class c on c.oid=e.objid	  
+    join pghist.hist_table t on t.schema=quote_ident(e.schema_name) and t.name=quote_ident(c.relname)
+    where e.object_type in ('table','table column');
 end;
 $$;
 
-create or replace function pghist.hist_event_drop_table() returns event_trigger security definer language plpgsql as $$
+create or replace function pghist.hist_event_ddl_create_index() returns event_trigger security definer language plpgsql as $$
+begin
+  perform pghist.hist_objects_refresh(t.schema,t.name) 
+    from pg_event_trigger_ddl_commands() e
+      join pg_index i on i.indexrelid=e.objid
+      join pg_class c on c.oid=i.indrelid
+      join pghist.hist_table t on t.schema=quote_ident(e.schema_name) and t.name=quote_ident(c.relname)
+      where e.object_type='index';
+end;
+$$;
+
+create or replace function pghist.hist_event_ddl_drop_table() returns event_trigger security definer language plpgsql as $$
 declare
   v_table record;
 begin 
   for v_table in 
     select t.schema,t.name 
      from pg_event_trigger_dropped_objects() o
-     join pghist.hist_table t on o.object_type='table' and t.schema=quote_ident(o.schema_name) and t.name=quote_ident(o.object_name) 
+     join pghist.hist_table t on t.schema=quote_ident(o.schema_name) and t.name=quote_ident(o.object_name)
+     where o.object_type='table' 
   loop    
 	call pghist.hist_disable(v_table.schema, v_table.name);
   end loop;	
 end;
 $$;
 
-do $$ begin
-  if not exists (select 1 from pg_event_trigger where evtname='pghist_event_tg_ddl_command') then
-    create event trigger pghist_event_tg_ddl_command on ddl_command_end when tag in ('ALTER TABLE','CREATE INDEX','COMMENT') execute procedure pghist.hist_event_ddl_command();
+create or replace function pghist.hist_event_ddl_drop_index() returns event_trigger stable security definer language plpgsql as $$
+begin
+  if current_query() ~* '\yconcurrently\y' then
+    raise notice 'STABLE functions and CONCURRENTLY operations are incompatible';
+    return; 
   end if;
-  if not exists (select 1 from pg_event_trigger where evtname='pghist_event_tg_drop_table') then
-    create event trigger pghist_event_tg_drop_table on sql_drop when tag in ('DROP TABLE','DROP SCHEMA') execute function pghist.hist_event_drop_table();
+  perform pghist.hist_objects_refresh(t.schema,t.name) 
+    from pg_event_trigger_dropped_objects() o     
+      join pg_index i on i.indexrelid=o.objid
+      join pg_class c on c.oid=i.indrelid
+      join pg_namespace s on s.oid = c.relnamespace
+      join pghist.hist_table t on t.schema=quote_ident(s.nspname) and t.name=quote_ident(c.relname)
+      where o.object_type='index';
+end;
+$$;
+
+-- Temporary, drop for old version 
+drop event trigger if exists pghist_event_tg_ddl_command;
+drop event trigger if exists pghist_event_tg_drop_table;
+
+do $$ begin
+  if not exists (select from pg_event_trigger where evtname='hist_event_ddl_alter_table_tg') then
+    create event trigger hist_event_ddl_alter_table_tg on ddl_command_end when tag in ('ALTER TABLE','COMMENT') execute function pghist.hist_event_ddl_alter_table();
+  end if;
+  if not exists (select from pg_event_trigger where evtname='hist_event_ddl_create_index_tg') then
+    create event trigger hist_event_ddl_create_index_tg on ddl_command_end when tag in ('CREATE INDEX') execute function pghist.hist_event_ddl_create_index();
+  end if;
+  if not exists (select from pg_event_trigger where evtname='pghist_event_ddl_drop_table_tg') then
+    create event trigger pghist_event_ddl_drop_table_tg on sql_drop when tag in ('DROP TABLE','DROP SCHEMA') execute function pghist.hist_event_ddl_drop_table();
+  end if;
+  if not exists (select from pg_event_trigger where evtname='pghist_event_ddl_drop_index_tg') then
+    create event trigger pghist_event_ddl_drop_index_tg on sql_drop when tag in ('DROP INDEX') execute function pghist.hist_event_ddl_drop_index();
   end if; 
 end $$;
 

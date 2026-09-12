@@ -42,7 +42,7 @@ update example.invoice i
   where i.id = h.id
     and i.date=current_date;
 
--- Сombination log and versioning   
+-- Combination log and versioning   
 select * 
   from example.invoice_at_timestamp('2024-04-06 10:00:00')
   where id in (
@@ -51,7 +51,7 @@ select *
               and hist_db_user=current_user
         );
 
--- Сomplex query in past        
+-- Complex query in past        
 select * 
   from example.invoice i
   join example.customer c on c.id=i.customer_id;

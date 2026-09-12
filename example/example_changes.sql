@@ -19,7 +19,7 @@ comment on table example.invoice is 'Invoice';
 comment on column example.invoice.id is 'Identifier';
 comment on column example.invoice.number is 'Number';
 comment on column example.invoice.date is 'Date';
-comment on column example.invoice.customer_id is 'Сustomer';
+comment on column example.invoice.customer_id is 'Customer';
 comment on column example.invoice.amount is 'Amount';
 
 create table example.product(
@@ -50,7 +50,7 @@ call pghist.hist_enable('example', 'invoice_product', 'example', 'invoice');
 -- Change data
 insert into example.invoice values (12,'#20', current_date, 1, 120.00);
 update example.invoice set customer_id=2 where id=12;
-insert into example.product(id,name,code) values (101,'Pensil','030'),(102,'Notebook','040');
+insert into example.product(id,name,code) values (101,'Pencil','030'),(102,'Notebook','040');
 insert into example.invoice_product(id, invoice_id, product_id, quantity, color) values (1,12,101,1000,'R'),(2,12,101,10,'G');
 
 do $$

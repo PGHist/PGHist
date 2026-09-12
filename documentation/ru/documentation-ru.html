@@ -8,46 +8,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-* {
-    margin:  0px;
-    padding: 0px;
-    border:  0px; 
+.button-top {
+  display: none; 
+  position: fixed;
+  right: 10px;
+  bottom: 40px;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 5px 8px;
+  border-style: solid; 
+  border-width: 2px;
 }
 
-html {
-    height: 100%;
-    font: 14px Verdana, Arial, Helvetica, sans-serif;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-div {
-    text-align: justify;	
-}
-
-p {
-    padding: 5px;
-}
-
-ul {
-    padding-left: 20px;
-}
-
-li {
-    padding-top: 2px;
-    padding-bottom: 2px;
-}
-
-a, a:link, a:active, a:visited {
-   #color: #0000EE;
-   color: #0000DD;
-   #color: red;
-}
-
+.button-top-visible {
+  display: block;
+} 
 .background-header {
     background: #F7F7FF;
 }
@@ -68,12 +43,31 @@ a, a:link, a:active, a:visited {
     color: #2020A0;
 }
 
+.color-menu-delimiter {
+    color: #90A0C0;
+}
+
+
 .color-menu-item-selected { 
     color: #E78C43; 
 }
 
 .background-menu-selected-top { 
     background: #C8D8E8;
+}
+
+.border-color-table {
+    border-color: #909090;
+}
+
+.background-tr-header {
+    #background: #F2F2F2;
+    #font-weight: bold;
+    background: #E8E8E8;
+}
+
+.background-tr-even {
+    background: #F7F7F7;
 }
 
 .border-color-div-source-code {
@@ -132,6 +126,62 @@ a, a:link, a:active, a:visited {
     color: #800060;
 }
 
+* {
+    margin:  0px;
+    padding: 0px;
+    border:  0px; 
+}
+
+html {
+    height: 100%;
+    font: 14px Verdana, Arial, Helvetica, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h2 {
+    font-size: 120%;
+    padding: 5px;
+}
+
+h3 {
+    font-size: 100%;
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+div {
+    text-align: justify;	
+}
+
+p {
+    padding: 5px;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+li {
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+a, a:link, a:active, a:visited {
+   #color: #0000EE;
+   color: #0000DD;
+   #color: red;
+}
+
 .div-page {
     #border: solid 3px red;
     display: flex;
@@ -180,13 +230,158 @@ a, a:link, a:active, a:visited {
   text-decoration: none;
 }
 
-
-
 .div-content-body {
     #border: solid 3px blue;
     padding: 10px 30px 10px 10px;
     border-left-style: solid;
     border-left-width: 2px;
+}
+
+.ul-articles li {
+    padding-top: 17px;
+}
+
+.div-video-iframe {
+    width: 560px;
+    height: 315px;
+}
+
+.div-source-code {
+    #border: solid 3px red;
+    overflow:scroll;
+    min-width: 95%;
+    max-width: 200px;   
+    border-style: solid;
+    border-width: 1px; 
+    padding: 2px 3px; 
+    font-family: monospace;
+    text-align: left;
+}
+
+.table-source-code {
+    border-collapse: collapse;
+    overflow:scroll;
+    min-width: 95%;
+    max-width: 200px;   
+    vertical-align: middle;
+}
+
+.table-source-code th {
+    border-style: solid;
+    border-width: 1px; 
+    border-collapse: collapse;
+    padding: 3px;
+    font-family: monospace;
+    text-align: center;
+}
+
+.table-source-code td {
+    border-style: solid;
+    border-width: 1px; 
+    border-collapse: collapse;
+    padding: 3px 5px; 
+    font-family: monospace;
+    text-align: left;
+}
+
+.table-doc {
+    border-style: solid;
+    border-width: 1px;  
+}
+
+.table-doc tr td {
+    padding: 5px 10px;
+}
+
+.div-download {
+    border-style: solid;
+    border-width: 1px;  
+    text-align: center;
+}
+
+.a-download {
+    text-decoration: none;
+}
+
+.div-documentation-synopsis {
+    #border: solid 3px red;
+    margin-left:    30px;
+    margin-right:    0px; 
+    margin-top:      3px;
+    margin-bottom:   0px;
+}
+
+.div-documentation-desc {
+    #border: solid 3px red;
+    margin-left:    30px;
+    margin-right:  100px; 
+    margin-top:      3px;
+    margin-bottom:   0px;
+}
+
+.textarea-ai-prompt {
+    #border: solid 3px red;
+    #overflow:scroll;
+    overflow: auto;
+    border-style: solid;
+    border-width: 1px;     
+    padding: 2px 3px; 
+    white-space: pre-wrap; 
+    #font: 14px Verdana, Arial, Helvetica, monospace;
+    font-size: 14px;
+    font-family: monospace;
+}
+
+.button-ai-prompt {
+    #border: solid 3px red;
+    border-style: solid;
+    border-width: 1px;   
+    margin: 0px;  
+    padding: 5px 10px 3px 10px; 
+    cursor: pointer;
+}
+
+.button-ai-prompt:hover {
+    filter: brightness(0.9);
+}
+
+
+@media (max-width: 900px) {
+
+    h1 {
+        font-size: 150%; 
+    }
+
+    .media-desktop {
+        display: none;
+    }
+
+    .div-content-panel-left {
+        display: none;
+    } 
+
+    .div-content-body {
+        border-left-width: 0px;
+        padding: 5px;
+    }
+
+    .div-video-iframe {
+        width:  370px;
+        height: 210px;
+    }
+
+}
+
+@media not (max-width: 900px) {
+
+    .media-mobile {
+        display: none;
+    }
+
+    #header {
+        min-height: 105px;
+    }
+
 }
 
 .menu-border-top {
@@ -276,7 +471,7 @@ a, a:link, a:active, a:visited {
 }
 
 .nav-mobile li li {
-	width: 160px;
+    width: 160px;
 }
    
 .nav-mobile > ul > li {
@@ -324,139 +519,27 @@ a, a:link, a:active, a:visited {
 }
 
 
-.ul-articles li {
-    padding-top: 17px;
-}
-
-.div-video-iframe {
-    width: 560px;
-    height: 315px;
-}
-
-.div-source-code {
-    #border: solid 3px red;
-    overflow:scroll;
-    min-width: 95%;
-    max-width: 200px;   
-    border-style: solid;
-    border-width: 1px; 
-    padding: 2px 3px; 
-    font-family: monospace;
-    text-align: left;
-}
-
-.table-source-code {
-    border-collapse: collapse;
-    overflow:scroll;
-    min-width: 95%;
-    max-width: 200px;   
+.tr-header td {
+    text-align: center;
     vertical-align: middle;
 }
 
-.table-source-code th {
-    border-style: solid;
-    border-width: 1px; 
-    border-collapse: collapse;
-    padding: 3px;
-    font-family: monospace;
+.td-align-center {
     text-align: center;
+    vertical-align: middle;
 }
-
-.table-source-code td {
-    border-style: solid;
-    border-width: 1px; 
-    border-collapse: collapse;
-    padding: 3px 5px; 
-    font-family: monospace;
-    text-align: left;
-}
-
-.div-download {
-    border-style: solid;
-    border-width: 1px;  
-    text-align: center;
-}
-
-.a-download {
-    text-decoration: none;
-}
-
-.div-documentation-synopsis {
-    #border: solid 3px red;
-    margin-left:    30px;
-    margin-right:    0px; 
-    margin-top:      3px;
-    margin-bottom:   0px;
-}
-
-.div-documentation-desc {
-    #border: solid 3px red;
-    margin-left:    30px;
-    margin-right:  100px; 
-    margin-top:      3px;
-    margin-bottom:   0px;
-}
-
-@media (max-width: 900px) {
-
-    #header-desktop {
-        display: none;
-    }
-
-    #menu-top-line-1 {
-        display: none;
-    }
-
-    .div-content-panel-left {
-        display: none;
-    } 
-
-    .div-content-body {
-        border-left-width: 0px;
-        padding: 5px;
-    }
-
-    .div-video-iframe {
-        width: 370px;
-        height: 210px;
-    }
-
-}
-
-@media not (max-width: 900px) {
-
-    #header-mobile {
-        display: none;
-    }
-
-}
-
-.button-top {
-  display: none; 
-  position: fixed;
-  right: 10px;
-  bottom: 40px;
-  cursor: pointer;
-  font-size: 18px;
-  padding: 5px 8px;
-  border-style: solid; 
-  border-width: 2px;
-}
-
-.button-top-visible {
-  display: block;
-} 
+  
 </style>
 
 
-<title>PGHist | Документация</title>
+<title>PGHist: История и аудит изменений таблиц в PostgreSQL | Документация</title>
 	
 </head>
 <body>
 
-<div id="header-desktop" class="div-page background-header menu-border-bottom border-color-menu" style="justify-content: center; padding: 10px;">
+<div id="header-desktop" class="div-page background-header menu-border-bottom border-color-menu" style="justify-content: center; text-align: center; padding: 10px;">
 
-  <h1>PGHist | Документация</h1>
+  <h1><h1 style="font-size: 150%;">PGHist | История и аудит изменений таблиц в PostgreSQL<br>Документация</h1></h1>
 
 </div>
 
@@ -491,13 +574,13 @@ a, a:link, a:active, a:visited {
     
 
 <a id="usage_method"></a>
-<p style="font-size:larger;"><b>Принцип использования</b></p>
+<h2>Принцип использования</h2>
 <br>
 
 Включение истории <a href="#hist_enable">pghist.hist_enable</a> создает в схеме таблицы 3 объекта для работы с историей:
 <br>
 <br>
-<b>1. Представление <a href="#view_hist">[schema].[table]_hist</a></b> представляет собой лог изменений(аудит) и предназначено для анализа разработчиками проблем с данными
+<h3>1. Представление <a href="#view_hist">[schema].[table]_hist</a></h3> представляет собой лог изменений (аудит) и предназначено для анализа разработчиками проблем с данными
 <br><br>
 SQL-запрос и приложение позволяют определить местоположение в исходном коде,
 cсылка на общую транзацию - изменения в других таблицах и SQL-запросы.
@@ -562,12 +645,12 @@ cсылка на общую транзацию - изменения в друг�
 
 <br>
 <br>
-<b>2. Функция <a href="#table_changes">[schema].[table]_changes</a></b> возвращает набор данных для показа изменений пользователю
+<h3>2. Функция <a href="#table_changes">[schema].[table]_changes</a></h3> возвращает набор данных для показа изменений пользователю
 <br><br>
-Информация выводится по столбцам в формате старое-новое значение c описанием.
+Информация выводится по столбцам в формате старое-новое значение с описанием.
 <br><br>
 Отображать пользователю идентификаторы и внешние ключи неинформативно, поэтому для каждой строки и значений полей выводится описание, которое можно переопределить через <a href="#hist_expression_desc">SQL-выражение</a>.
-По умолчанию для строки возращается комментарий таблицы с первичным ключом, для столбца, являющегося внешним ключом, - первое текстовое поле связанной таблицы,
+По умолчанию для строки возвращается комментарий таблицы с первичным ключом, для столбца, являющегося внешним ключом, - первое текстовое поле связанной таблицы,
 для остальных - значение. Таким образом, отображать пользователю можно не значения, а описания. 
 <br><br>
 При включении истории для detail-таблиц необходимо указать master-таблицу, это приведет к дополнительному хранению и индексированию полей внешнего ключа аналогично первичному.
@@ -598,7 +681,7 @@ cсылка на общую транзацию - изменения в друг�
 <span class="color-source-sql-keyword">comment</span> <span class="color-source-sql-keyword">on</span> <span class="color-source-sql-keyword">column</span> example.invoice.id <span class="color-source-sql-keyword">is</span> <span class="color-source-sql-string">'Identifier'</span>;
 <span class="color-source-sql-keyword">comment</span> <span class="color-source-sql-keyword">on</span> <span class="color-source-sql-keyword">column</span> example.invoice.number <span class="color-source-sql-keyword">is</span> <span class="color-source-sql-string">'Number'</span>;
 <span class="color-source-sql-keyword">comment</span> <span class="color-source-sql-keyword">on</span> <span class="color-source-sql-keyword">column</span> example.invoice.date <span class="color-source-sql-keyword">is</span> <span class="color-source-sql-string">'Date'</span>;
-<span class="color-source-sql-keyword">comment</span> <span class="color-source-sql-keyword">on</span> <span class="color-source-sql-keyword">column</span> example.invoice.customer_id <span class="color-source-sql-keyword">is</span> <span class="color-source-sql-string">'Сustomer'</span>;
+<span class="color-source-sql-keyword">comment</span> <span class="color-source-sql-keyword">on</span> <span class="color-source-sql-keyword">column</span> example.invoice.customer_id <span class="color-source-sql-keyword">is</span> <span class="color-source-sql-string">'Customer'</span>;
 <span class="color-source-sql-keyword">comment</span> <span class="color-source-sql-keyword">on</span> <span class="color-source-sql-keyword">column</span> example.invoice.amount <span class="color-source-sql-keyword">is</span> <span class="color-source-sql-string">'Amount'</span>;
 
 <span class="color-source-sql-keyword">create</span> <span class="color-source-sql-keyword">table</span> example.product(
@@ -629,7 +712,7 @@ cсылка на общую транзацию - изменения в друг�
 <span class="color-source-sql-comment">-- Change data</span>
 <span class="color-source-sql-keyword">insert</span> <span class="color-source-sql-keyword">into</span> example.invoice <span class="color-source-sql-keyword">values</span> (12,<span class="color-source-sql-string">'#20'</span>, <span class="color-source-sql-keyword">current_date</span>, 1, 120.00);
 <span class="color-source-sql-keyword">update</span> example.invoice <span class="color-source-sql-keyword">set</span> customer_id=2 <span class="color-source-sql-keyword">where</span> id=12;
-<span class="color-source-sql-keyword">insert</span> <span class="color-source-sql-keyword">into</span> example.product(id,<span class="color-source-sql-keyword">name</span>,code) <span class="color-source-sql-keyword">values</span> (101,<span class="color-source-sql-string">'Pensil'</span>,<span class="color-source-sql-string">'030'</span>),(102,<span class="color-source-sql-string">'Notebook'</span>,<span class="color-source-sql-string">'040'</span>);
+<span class="color-source-sql-keyword">insert</span> <span class="color-source-sql-keyword">into</span> example.product(id,<span class="color-source-sql-keyword">name</span>,code) <span class="color-source-sql-keyword">values</span> (101,<span class="color-source-sql-string">'Pencil'</span>,<span class="color-source-sql-string">'030'</span>),(102,<span class="color-source-sql-string">'Notebook'</span>,<span class="color-source-sql-string">'040'</span>);
 <span class="color-source-sql-keyword">insert</span> <span class="color-source-sql-keyword">into</span> example.invoice_product(id, invoice_id, product_id, quantity, color) <span class="color-source-sql-keyword">values</span> (1,12,101,1000,<span class="color-source-sql-string">'R'</span>),(2,12,101,10,<span class="color-source-sql-string">'G'</span>);
 
 <span class="color-source-sql-keyword">do</span> <span class="color-source-sql-block-border">&dollar;&dollar;</span>
@@ -670,7 +753,7 @@ cсылка на общую транзацию - изменения в друг�
 </pre>
 </div>
 <br>
-Изменения по опредленному условию можно получить используя <em>cross join</em> со списком первичных ключей.
+Изменения по определенному условию можно получить используя <em>cross join</em> со списком первичных ключей.
 Для объединения истории по нескольким таблицам результаты функций можно объединять через оператор <em>union all</em>.
 Для подобных запросов рекомендуется создавать функции-обертки.
 <br><br>
@@ -728,10 +811,10 @@ cсылка на общую транзацию - изменения в друг�
 </div>
 <br>
 <br>
-<b>3. Функция <a href="#table_at_timestamp">[schema].[table]_at_timestamp</a></b> создает копию таблицы (временную таблицу) на момент времени в прошлом и возвращает ee
+<h3>3. Функция <a href="#table_at_timestamp">[schema].[table]_at_timestamp</a></h3> создает копию таблицы (временную таблицу) на момент времени в прошлом и возвращает ee
 <br><br>
 Используется для восстановления данных и получения данных и результата SQL-запроса из нескольких таблиц на момент времени в прошлом,
-может быть соединена с представлением [schema].[table]_hist по первичому ключу.
+может быть соединена с представлением [schema].[table]_hist по первичному ключу.
 <br><br>
 Для оптимальной работы SQL-запросов созданная временная таблица имеет индексы аналогичные исходной, время восстановления можно задать 
 один раз в параметре <em>pghist.at_timestamp</em>.
@@ -782,7 +865,7 @@ cсылка на общую транзацию - изменения в друг�
   <span class="color-source-sql-keyword">where</span> i.id = h.id
     <span class="color-source-sql-keyword">and</span> i.date=<span class="color-source-sql-keyword">current_date</span>;
 
-<span class="color-source-sql-comment">-- Сombination log and versioning   </span>
+<span class="color-source-sql-comment">-- Combination log and versioning   </span>
 <span class="color-source-sql-keyword">select</span> * 
   <span class="color-source-sql-keyword">from</span> example.invoice_at_timestamp(<span class="color-source-sql-string">'2024-04-06 10:00:00'</span>)
   <span class="color-source-sql-keyword">where</span> id <span class="color-source-sql-keyword">in</span> (
@@ -791,7 +874,7 @@ cсылка на общую транзацию - изменения в друг�
               <span class="color-source-sql-keyword">and</span> hist_db_user=<span class="color-source-sql-keyword">current_user</span>
         );
 
-<span class="color-source-sql-comment">-- Сomplex query in past        </span>
+<span class="color-source-sql-comment">-- Complex query in past        </span>
 <span class="color-source-sql-keyword">select</span> * 
   <span class="color-source-sql-keyword">from</span> example.invoice i
   <span class="color-source-sql-keyword">join</span> example.customer c <span class="color-source-sql-keyword">on</span> c.id=i.customer_id;
@@ -815,10 +898,10 @@ cсылка на общую транзацию - изменения в друг�
 
 
 <a id="security"></a>
-<p style="font-size:larger;"><b>Безопасность</b></p>
+<h2>Безопасность</h2>
 <br>
 Таблица истории <a href="#hist_table">data$[schema]_[table]</a> и триггерные функции создаются в схеме pghist, объекты для работы с историей - в схеме таблицы.
-Владельцем всех создавемых объектов является суперпользователь, хранимые процедуры создаются с правами владельца (security definer).
+Владельцем всех создаваемых объектов является суперпользователь, хранимые процедуры создаются с правами владельца (security definer).
 Владельцу основной таблицы выдаются права  с опцией передачи (with grant option) на чтение представления <a href="#view_hist">[schema].[table]_hist</a> и 
 вызов функций <a href="#table_changes">[schema].[table]_changes</a>, <a href="#table_at_timestamp">[schema].[table]_at_timestamp</a>.
 <br><br>
@@ -866,21 +949,22 @@ cсылка на общую транзацию - изменения в друг�
 
 
 <a id="hist_enable"></a>
-<p style="font-size:larger;"><b>pghist.hist_enable</b>(schema, table_name, master_table_schema, master_table_name, columns_excluded)</p>
-<br>
+<h3 style="font-size:larger; padding: 5px 0px 5px 5px; display: inline;">pghist.hist_enable</h3><span style="font-size:larger;">(schema, table_name, master_table_schema, master_table_name, columns_excluded)</span><br><br>
 Процедура включает ведение истории изменений для указанной таблицы, создает таблицу истории, триггеры и функции получения данных
 <br>
-<br>
-Параметры:<br>
-<table>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">schema</td><td style="width: 5px;"></td><td style="white-space: nowrap;">name</td><td style="text-align: center; width: 30px;">-</td><td>схема таблицы (необязательный)</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">table_name</td><td style="width: 5px;"></td><td style="white-space: nowrap;">name</td><td style="text-align: center; width: 30px;">-</td><td>имя таблицы</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">master_table_schema</td><td style="width: 5px;"></td><td style="white-space: nowrap;">name</td><td style="text-align: center; width: 30px;">-</td><td>схема мастер-таблицы (необязательный)</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">master_table_name</td><td style="width: 5px;"></td><td style="white-space: nowrap;">name</td><td style="text-align: center; width: 30px;">-</td><td>имя мастер-таблицы (необязательный)</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">columns_excluded</td><td style="width: 5px;"></td><td style="white-space: nowrap;">name[]</td><td style="text-align: center; width: 30px;">-</td><td>исключенные столбцы (необязательный)</td></tr>
+<br>Параметры<br>
+<table class="table-doc border-color-table">
+  <thead><tr class="tr-header background-tr-header"><td>Наименование</td><td>Тип</td><td>Описание</td><td>Обязательный</td><td>По умолчанию</td></tr></thead>
+  <tbody>
+    <tr><td style="white-space: nowrap;">schema</td><td style="white-space: nowrap;">name</td><td >схема таблицы</td><td class="td-align-center"></td><td class="td-align-center">public</td></tr>
+    <tr class="background-tr-even"><td style="white-space: nowrap;">table_name</td><td style="white-space: nowrap;">name</td><td >имя таблицы</td><td class="td-align-center">&#x2714;</td><td class="td-align-center"></td></tr>
+    <tr><td style="white-space: nowrap;">master_table_schema</td><td style="white-space: nowrap;">name</td><td >схема мастер-таблицы</td><td class="td-align-center"></td><td class="td-align-center"></td></tr>
+    <tr class="background-tr-even"><td style="white-space: nowrap;">master_table_name</td><td style="white-space: nowrap;">name</td><td >имя мастер-таблицы</td><td class="td-align-center"></td><td class="td-align-center"></td></tr>
+    <tr><td style="white-space: nowrap;">columns_excluded</td><td style="white-space: nowrap;">name[]</td><td >исключенные столбцы</td><td class="td-align-center"></td><td class="td-align-center"></td></tr>
+  </tbody>
 </table>
 <br>
-Примеры использования:<br>
+Примеры использования<br>
 <div class="div-source-code border-color-div-source-code" style="height: 138px;">
 <pre><span class="color-source-sql-keyword">call</span> pghist.hist_enable(<span class="color-source-sql-string">'document'</span>);
 
@@ -896,30 +980,30 @@ cсылка на общую транзацию - изменения в друг�
 
 
 <a id="view_hist"></a>
-<p style="font-size:larger;"><b>[schema].[table]_hist</b></p>
-<br>
+<h3 style="font-size:larger; padding: 5px 0px 5px 5px; display: inline;">[schema].[table]_hist</h3><br><br>
 Представление содержит список изменений по строкам, создается при включении ведения истории.<br>Сортируется по первым двум столбцам, что обеспечивает хронологию по времени
 <br>
-<br>
-Столбцы:<br>
-<table>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">hist_statement_num</td><td style="width: 5px;"></td><td style="white-space: nowrap;">bigint</td><td style="text-align: center; width: 30px;">-</td><td>глобальный номер SQL-выражения</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">hist_row_num</td><td style="width: 5px;"></td><td style="white-space: nowrap;">bigint</td><td style="text-align: center; width: 30px;">-</td><td>номер строки в наборе данных, который изменяет SQL-выражения</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">hist_timestamp</td><td style="width: 5px;"></td><td style="white-space: nowrap;">timestamptz</td><td style="text-align: center; width: 30px;">-</td><td>дата-время начала выполнения SQL-выражения</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">hist_operation</td><td style="width: 5px;"></td><td style="white-space: nowrap;">varchar</td><td style="text-align: center; width: 30px;">-</td><td>операция: INSERT,UPDATE,DELETE,TRUNCATE</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">hist_update_columns</td><td style="width: 5px;"></td><td style="white-space: nowrap;">name[]</td><td style="text-align: center; width: 30px;">-</td><td>список обновленных столбцов для операции UPDATE</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">hist_db_user</td><td style="width: 5px;"></td><td style="white-space: nowrap;">name</td><td style="text-align: center; width: 30px;">-</td><td>пользователь базы данных</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">hist_app_user</td><td style="width: 5px;"></td><td style="white-space: nowrap;">varchar</td><td style="text-align: center; width: 30px;">-</td><td>пользователь приложения, определяется как current_setting('app.user')</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">hist_application_name</td><td style="width: 5px;"></td><td style="white-space: nowrap;">varchar</td><td style="text-align: center; width: 30px;">-</td><td>имя приложения</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">hist_query_text</td><td style="width: 5px;"></td><td style="white-space: nowrap;">text</td><td style="text-align: center; width: 30px;">-</td><td>текст SQL-запроса</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">hist_statement_id</td><td style="width: 5px;"></td><td style="white-space: nowrap;">bigint</td><td style="text-align: center; width: 30px;">-</td><td>ID SQL-выражения, ссылается на таблицу pghist.hist_statement</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">[primary key column(s)]</td><td style="width: 5px;"></td><td style="white-space: nowrap;"></td><td style="text-align: center; width: 30px;">-</td><td>значение первичного ключа (может быть несколько)</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">[column(s) of fkey on master table]</td><td style="width: 5px;"></td><td style="white-space: nowrap;"></td><td style="text-align: center; width: 30px;">-</td><td>значение внешнего ключа на мастер-таблицу (необязательный, может быть несколько)</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">[column...]_old</td><td style="width: 5px;"></td><td style="white-space: nowrap;"></td><td style="text-align: center; width: 30px;">-</td><td>старое значение для каждого столбца таблицы [schema].[table]</td></tr>
+<br>Столбцы<br>
+<table class="table-doc border-color-table">
+  <thead><tr class="tr-header background-tr-header"><td>Наименование</td><td>Тип</td><td>Описание</td><td>Обязательный</td><td>По умолчанию</td></tr></thead>
+  <tbody>
+    <tr><td style="white-space: nowrap;">hist_statement_num</td><td style="white-space: nowrap;">bigint</td><td >глобальный номер SQL-выражения</td><td class="td-align-center">&#x2714;</td><td class="td-align-center"></td></tr>
+    <tr class="background-tr-even"><td style="white-space: nowrap;">hist_row_num</td><td style="white-space: nowrap;">bigint</td><td >номер строки в наборе данных, который изменяет SQL-выражения</td><td class="td-align-center">&#x2714;</td><td class="td-align-center"></td></tr>
+    <tr><td style="white-space: nowrap;">hist_timestamp</td><td style="white-space: nowrap;">timestamptz</td><td >дата-время начала выполнения SQL-выражения</td><td class="td-align-center">&#x2714;</td><td class="td-align-center"></td></tr>
+    <tr class="background-tr-even"><td style="white-space: nowrap;">hist_operation</td><td style="white-space: nowrap;">varchar</td><td >операция: INSERT,UPDATE,DELETE,TRUNCATE</td><td class="td-align-center">&#x2714;</td><td class="td-align-center"></td></tr>
+    <tr><td style="white-space: nowrap;">hist_update_columns</td><td style="white-space: nowrap;">name[]</td><td >список обновленных столбцов для операции UPDATE</td><td class="td-align-center"></td><td class="td-align-center"></td></tr>
+    <tr class="background-tr-even"><td style="white-space: nowrap;">hist_db_user</td><td style="white-space: nowrap;">name</td><td >пользователь базы данных</td><td class="td-align-center">&#x2714;</td><td class="td-align-center"></td></tr>
+    <tr><td style="white-space: nowrap;">hist_app_user</td><td style="white-space: nowrap;">varchar</td><td >пользователь приложения</td><td class="td-align-center"></td><td class="td-align-center">current_setting(&#39;app.user&#39;)</td></tr>
+    <tr class="background-tr-even"><td style="white-space: nowrap;">hist_application_name</td><td style="white-space: nowrap;">varchar</td><td >имя приложения</td><td class="td-align-center"></td><td class="td-align-center"></td></tr>
+    <tr><td style="white-space: nowrap;">hist_query_text</td><td style="white-space: nowrap;">text</td><td >текст SQL-запроса</td><td class="td-align-center">&#x2714;</td><td class="td-align-center"></td></tr>
+    <tr class="background-tr-even"><td style="white-space: nowrap;">hist_statement_id</td><td style="white-space: nowrap;">bigint</td><td >ID SQL-выражения, ссылается на таблицу pghist.hist_statement</td><td class="td-align-center">&#x2714;</td><td class="td-align-center"></td></tr>
+    <tr><td style="white-space: nowrap;">[primary key column(s)]</td><td style="white-space: nowrap;"></td><td >значения первичного ключа</td><td class="td-align-center">&#x2714;</td><td class="td-align-center"></td></tr>
+    <tr class="background-tr-even"><td style="white-space: nowrap;">[column(s) of fkey on master table]</td><td style="white-space: nowrap;"></td><td >значения внешнего ключа на мастер-таблицу</td><td class="td-align-center"></td><td class="td-align-center"></td></tr>
+    <tr><td style="white-space: nowrap;">[column...]_old</td><td style="white-space: nowrap;"></td><td >старые значения для каждого столбца таблицы [schema].[table]</td><td class="td-align-center"></td><td class="td-align-center"></td></tr>
+  </tbody>
 </table>
-
 <br>
-Примеры использования:<br>
+Примеры использования<br>
 <div class="div-source-code border-color-div-source-code" style="height: 84px;">
 <pre><span class="color-source-sql-keyword">select</span> * <span class="color-source-sql-keyword">from</span> example.document_hist;
 <span class="color-source-sql-keyword">select</span> * <span class="color-source-sql-keyword">from</span> example.document_hist <span class="color-source-sql-keyword">where</span> id=2;
@@ -932,47 +1016,49 @@ cсылка на общую транзацию - изменения в друг�
 
 
 <a id="table_changes"></a>
-<p style="font-size:larger;"><b>[schema].[table]_changes</b>(hist_columns_immutable, hist_columns_insert, hist_tables_detail, hist_tables_inherited)</p>
-<br>
-Функция возвращает изменения в таблице (setof pghist.table_change), создается при включении ведения истории.<br>Сортировка по первым трем столбцам обеспечивает хронологию по времени, для получения связанных данных из нескольких таблиц рекомендуется использовать оператор <em>union all</em>
-<br>
-<br>
-Параметры:<br>
-<table>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">[primary key column(s)]</td><td style="width: 5px;"></td><td style="white-space: nowrap;"></td><td style="text-align: center; width: 30px;">-</td><td>значение первичного ключа (необязательный, может быть несколько)</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">[column(s) of fkey on master table]</td><td style="width: 5px;"></td><td style="white-space: nowrap;"></td><td style="text-align: center; width: 30px;">-</td><td>значение внешнего ключа на мастер-таблицу (необязательный, может быть несколько)</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">hist_columns_immutable</td><td style="width: 5px;"></td><td style="white-space: nowrap;">boolean</td><td style="text-align: center; width: 30px;">-</td><td>возвращать значения неизменямых столбцов (необязательный, по умолчанию false)</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">hist_columns_insert</td><td style="width: 5px;"></td><td style="white-space: nowrap;">boolean</td><td style="text-align: center; width: 30px;">-</td><td>детализировать операцию INSERT по столбцам (необязательный, по умолчанию false)</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">hist_tables_detail</td><td style="width: 5px;"></td><td style="white-space: nowrap;">boolean</td><td style="text-align: center; width: 30px;">-</td><td>возвращать изменения в detail-таблицах (необязательный, по умолчанию true)</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">hist_tables_inherited</td><td style="width: 5px;"></td><td style="white-space: nowrap;">boolean</td><td style="text-align: center; width: 30px;">-</td><td>учитывать унаследованные таблицы (необязательный, по умолчанию true)</td></tr>
-</table>
-<br>
-Столбцы возвращаемого набора данных (тип pghist.hist_table_change):<br>
-<table>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">statement_num</td><td style="width: 5px;"></td><td style="white-space: nowrap;">bigint</td><td style="text-align: center; width: 30px;">-</td><td>глобальный номер SQL-выражения</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">row_num</td><td style="width: 5px;"></td><td style="white-space: nowrap;">int</td><td style="text-align: center; width: 30px;">-</td><td>номер строки в наборе данных, который изменяет SQL-выражения</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">column_num</td><td style="width: 5px;"></td><td style="white-space: nowrap;">int</td><td style="text-align: center; width: 30px;">-</td><td>номер столбца в строке</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">timestamp</td><td style="width: 5px;"></td><td style="white-space: nowrap;">timestamptz</td><td style="text-align: center; width: 30px;">-</td><td>дата-время операции</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">operation</td><td style="width: 5px;"></td><td style="white-space: nowrap;">varchar</td><td style="text-align: center; width: 30px;">-</td><td>операция: INSERT,UPDATE,DELETE,TRUNCATE</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">operation_name</td><td style="width: 5px;"></td><td style="white-space: nowrap;">varchar</td><td style="text-align: center; width: 30px;">-</td><td>наименование операции, задается переопределяемой функцией pghist.hist_custom_operation_name</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">column_name</td><td style="width: 5px;"></td><td style="white-space: nowrap;">name</td><td style="text-align: center; width: 30px;">-</td><td>имя столбца</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">column_comment</td><td style="width: 5px;"></td><td style="white-space: nowrap;">varchar</td><td style="text-align: center; width: 30px;">-</td><td>комментарий столбца</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">value_old</td><td style="width: 5px;"></td><td style="white-space: nowrap;">text</td><td style="text-align: center; width: 30px;">-</td><td>старое значение</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">value_old_desc</td><td style="width: 5px;"></td><td style="white-space: nowrap;">text</td><td style="text-align: center; width: 30px;">-</td><td>описание старого значения, можно переопредилить через процедуру pghist.hist_expression_value_desc</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">value_new</td><td style="width: 5px;"></td><td style="white-space: nowrap;">text</td><td style="text-align: center; width: 30px;">-</td><td>новое значение</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">value_new_desc</td><td style="width: 5px;"></td><td style="white-space: nowrap;">text</td><td style="text-align: center; width: 30px;">-</td><td>описание нового значение, можно переопредилить через процедуру pghist.hist_expression_value_desc</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">row_desc</td><td style="width: 5px;"></td><td style="white-space: nowrap;">text</td><td style="text-align: center; width: 30px;">-</td><td>описание строки, можно переопредилить через процедуру pghist.hist_expression_row_desc</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">db_user</td><td style="width: 5px;"></td><td style="white-space: nowrap;">name</td><td style="text-align: center; width: 30px;">-</td><td>пользователь базы данных</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">db_user_name</td><td style="width: 5px;"></td><td style="white-space: nowrap;">varchar</td><td style="text-align: center; width: 30px;">-</td><td>имя пользователя базы данных, задается переопределяемой функцией pghist.hist_custom_db_user_name</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">app_user</td><td style="width: 5px;"></td><td style="white-space: nowrap;">varchar</td><td style="text-align: center; width: 30px;">-</td><td>пользователь приложения, задается переопределяемой функцией pghist.hist_custom_app_user</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">app_user_name</td><td style="width: 5px;"></td><td style="white-space: nowrap;">varchar</td><td style="text-align: center; width: 30px;">-</td><td>имя пользователя приложения, задается переопределяемой функцией pghist.hist_custom_app_user_name</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">schema</td><td style="width: 5px;"></td><td style="white-space: nowrap;">name</td><td style="text-align: center; width: 30px;">-</td><td>схема</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">table_name</td><td style="width: 5px;"></td><td style="white-space: nowrap;">text</td><td style="text-align: center; width: 30px;">-</td><td>имя таблицы</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">table_comment</td><td style="width: 5px;"></td><td style="white-space: nowrap;">text</td><td style="text-align: center; width: 30px;">-</td><td>комментарий таблицы</td></tr>
+<h3 style="font-size:larger; padding: 5px 0px 5px 5px; display: inline;">[schema].[table]_changes</h3><br><br>
+Функция возвращает изменения в таблице (setof pghist.table_change), создается при включении ведения истории.<br>Сортировка по первым трем столбцам обеспечивает хронологию по времени, для получения связанных данных из нескольких таблиц рекомендуется использовать оператор <em>union all</em><br><br>Параметры<br>
+<table class="table-doc border-color-table">
+  <thead><tr class="tr-header background-tr-header"><td>Наименование</td><td>Тип</td><td>Описание</td><td>Обязательный</td><td>По умолчанию</td></tr></thead>
+  <tbody>
+    <tr><td style="white-space: nowrap;">[primary key column(s)]</td><td style="white-space: nowrap;"></td><td >значения первичного ключа</td><td class="td-align-center"></td><td class="td-align-center"></td></tr>
+    <tr class="background-tr-even"><td style="white-space: nowrap;">[column(s) of fkey on master table]</td><td style="white-space: nowrap;"></td><td >значения внешнего ключа на мастер-таблицу</td><td class="td-align-center"></td><td class="td-align-center"></td></tr>
+    <tr><td style="white-space: nowrap;">hist_columns_immutable</td><td style="white-space: nowrap;">boolean</td><td >возвращать значения неизменяемых столбцов</td><td class="td-align-center"></td><td class="td-align-center">false</td></tr>
+    <tr class="background-tr-even"><td style="white-space: nowrap;">hist_columns_insert</td><td style="white-space: nowrap;">boolean</td><td >детализировать операцию INSERT по столбцам</td><td class="td-align-center"></td><td class="td-align-center">false</td></tr>
+    <tr><td style="white-space: nowrap;">hist_tables_detail</td><td style="white-space: nowrap;">boolean</td><td >возвращать изменения в detail-таблицах</td><td class="td-align-center"></td><td class="td-align-center">true</td></tr>
+    <tr class="background-tr-even"><td style="white-space: nowrap;">hist_tables_inherited</td><td style="white-space: nowrap;">boolean</td><td >учитывать унаследованные таблицы</td><td class="td-align-center"></td><td class="td-align-center">true</td></tr>
+  </tbody>
 </table>
 
 <br>
-Примеры использования:<br>
+Столбцы возвращаемого набора данных (тип pghist.hist_table_change)<br>
+<table class="table-doc border-color-table">
+  <thead><tr class="tr-header background-tr-header"><td>Наименование</td><td>Тип</td><td>Описание</td><td>Обязательный</td><td>По умолчанию</td></tr></thead>
+  <tbody>
+    <tr><td style="white-space: nowrap;">statement_num</td><td style="white-space: nowrap;">bigint</td><td >глобальный номер SQL-выражения</td><td class="td-align-center">&#x2714;</td><td class="td-align-center"></td></tr>
+    <tr class="background-tr-even"><td style="white-space: nowrap;">row_num</td><td style="white-space: nowrap;">int</td><td >номер строки в наборе данных, который изменяет SQL-выражения</td><td class="td-align-center">&#x2714;</td><td class="td-align-center"></td></tr>
+    <tr><td style="white-space: nowrap;">column_num</td><td style="white-space: nowrap;">int</td><td >номер столбца в строке</td><td class="td-align-center">&#x2714;</td><td class="td-align-center"></td></tr>
+    <tr class="background-tr-even"><td style="white-space: nowrap;">timestamp</td><td style="white-space: nowrap;">timestamptz</td><td >дата-время операции</td><td class="td-align-center">&#x2714;</td><td class="td-align-center"></td></tr>
+    <tr><td style="white-space: nowrap;">operation</td><td style="white-space: nowrap;">varchar</td><td >операция: INSERT,UPDATE,DELETE,TRUNCATE</td><td class="td-align-center">&#x2714;</td><td class="td-align-center"></td></tr>
+    <tr class="background-tr-even"><td style="white-space: nowrap;">operation_name</td><td style="white-space: nowrap;">varchar</td><td >наименование операции,<br>задается переопределяемой функцией pghist.hist_custom_operation_name</td><td class="td-align-center">&#x2714;</td><td class="td-align-center"></td></tr>
+    <tr><td style="white-space: nowrap;">column_name</td><td style="white-space: nowrap;">name</td><td >имя столбца</td><td class="td-align-center">&#x2714;</td><td class="td-align-center"></td></tr>
+    <tr class="background-tr-even"><td style="white-space: nowrap;">column_comment</td><td style="white-space: nowrap;">varchar</td><td >комментарий столбца</td><td class="td-align-center"></td><td class="td-align-center"></td></tr>
+    <tr><td style="white-space: nowrap;">value_old</td><td style="white-space: nowrap;">text</td><td >старое значение</td><td class="td-align-center"></td><td class="td-align-center"></td></tr>
+    <tr class="background-tr-even"><td style="white-space: nowrap;">value_old_desc</td><td style="white-space: nowrap;">text</td><td >описание старого значения,<br>можно переопределить через процедуру pghist.hist_expression_value_desc</td><td class="td-align-center"></td><td class="td-align-center"></td></tr>
+    <tr><td style="white-space: nowrap;">value_new</td><td style="white-space: nowrap;">text</td><td >новое значение</td><td class="td-align-center"></td><td class="td-align-center"></td></tr>
+    <tr class="background-tr-even"><td style="white-space: nowrap;">value_new_desc</td><td style="white-space: nowrap;">text</td><td >описание нового значение,<br>можно переопределить через процедуру pghist.hist_expression_value_desc</td><td class="td-align-center"></td><td class="td-align-center"></td></tr>
+    <tr><td style="white-space: nowrap;">row_desc</td><td style="white-space: nowrap;">text</td><td >описание строки,<br>можно переопределить через процедуру pghist.hist_expression_row_desc</td><td class="td-align-center"></td><td class="td-align-center"></td></tr>
+    <tr class="background-tr-even"><td style="white-space: nowrap;">db_user</td><td style="white-space: nowrap;">name</td><td >пользователь базы данных</td><td class="td-align-center">&#x2714;</td><td class="td-align-center"></td></tr>
+    <tr><td style="white-space: nowrap;">db_user_name</td><td style="white-space: nowrap;">varchar</td><td >имя пользователя базы данных,<br>задается переопределяемой функцией pghist.hist_custom_db_user_name</td><td class="td-align-center"></td><td class="td-align-center"></td></tr>
+    <tr class="background-tr-even"><td style="white-space: nowrap;">app_user</td><td style="white-space: nowrap;">varchar</td><td >пользователь приложения,<br>задается переопределяемой функцией pghist.hist_custom_app_user</td><td class="td-align-center"></td><td class="td-align-center"></td></tr>
+    <tr><td style="white-space: nowrap;">app_user_name</td><td style="white-space: nowrap;">varchar</td><td >имя пользователя приложения,<br>задается переопределяемой функцией pghist.hist_custom_app_user_name</td><td class="td-align-center"></td><td class="td-align-center"></td></tr>
+    <tr class="background-tr-even"><td style="white-space: nowrap;">schema</td><td style="white-space: nowrap;">name</td><td >схема</td><td class="td-align-center">&#x2714;</td><td class="td-align-center"></td></tr>
+    <tr><td style="white-space: nowrap;">table_name</td><td style="white-space: nowrap;">text</td><td >имя таблицы</td><td class="td-align-center">&#x2714;</td><td class="td-align-center"></td></tr>
+    <tr class="background-tr-even"><td style="white-space: nowrap;">table_comment</td><td style="white-space: nowrap;">text</td><td >комментарий таблицы</td><td class="td-align-center"></td><td class="td-align-center"></td></tr>
+  </tbody>
+</table>
+<br>
+Примеры использования<br>
 <div class="div-source-code border-color-div-source-code" style="height: 192px;">
 <pre><span class="color-source-sql-keyword">select</span> * <span class="color-source-sql-keyword">from</span> example.invoice_changes() <span class="color-source-sql-keyword">order</span> <span class="color-source-sql-keyword">by</span> 1,2,3;
 <span class="color-source-sql-keyword">select</span> * <span class="color-source-sql-keyword">from</span> example.invoice_changes(hist_columns_immutable=&#62;<span class="color-source-sql-keyword">true</span>) <span class="color-source-sql-keyword">order</span> <span class="color-source-sql-keyword">by</span> 1,2,3; 
@@ -991,20 +1077,21 @@ cсылка на общую транзацию - изменения в друг�
 
 
 <a id="table_at_timestamp"></a>
-<p style="font-size:larger;"><b>[schema].[table]_at_timestamp</b>(transaction_timestamp, cascade)</p>
+<h3 style="font-size:larger; padding: 5px 0px 5px 5px; display: inline;">[schema].[table]_at_timestamp</h3><span style="font-size:larger;">(transaction_timestamp, cascade)</span><br><br>
+Функция создает временную таблицу [schema]_[table]_at_timestamp как копию исходной таблицы по состоянию на момент времени и возвращает ее
 <br>
-Функция создает временную таблицу [schema]_[table]_at_timestamp как копию исходной таблицы по состоянию на момент времени и возращает ее
-<br>
-<br>
-Параметры:<br>
-<table>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">schema</td><td style="width: 5px;"></td><td style="white-space: nowrap;"></td><td style="text-align: center; width: 30px;">-</td><td>схема таблицы</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">table_name</td><td style="width: 5px;"></td><td style="white-space: nowrap;"></td><td style="text-align: center; width: 30px;">-</td><td>имя таблицы</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">transaction_timestamp</td><td style="width: 5px;"></td><td style="white-space: nowrap;">timestamptz</td><td style="text-align: center; width: 30px;">-</td><td>дата-время завершения транзации (необязательный, по умолчанию current_setting(&#39;pghist.at_timestamp&#39;))</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">cascade</td><td style="width: 5px;"></td><td style="white-space: nowrap;">boolean</td><td style="text-align: center; width: 30px;">-</td><td>учитывать унаследованные таблицы (необязательный, по умолчанию true)</td></tr>
+<br>Параметры<br>
+<table class="table-doc border-color-table">
+  <thead><tr class="tr-header background-tr-header"><td>Наименование</td><td>Тип</td><td>Описание</td><td>Обязательный</td><td>По умолчанию</td></tr></thead>
+  <tbody>
+    <tr><td style="white-space: nowrap;">schema</td><td style="white-space: nowrap;"></td><td >схема таблицы</td><td class="td-align-center">&#x2714;</td><td class="td-align-center"></td></tr>
+    <tr class="background-tr-even"><td style="white-space: nowrap;">table_name</td><td style="white-space: nowrap;"></td><td >имя таблицы</td><td class="td-align-center">&#x2714;</td><td class="td-align-center"></td></tr>
+    <tr><td style="white-space: nowrap;">transaction_timestamp</td><td style="white-space: nowrap;">timestamptz</td><td >дата-время завершения транзакции</td><td class="td-align-center"></td><td class="td-align-center">current_setting(&#39;pghist.at_timestamp&#39;)</td></tr>
+    <tr class="background-tr-even"><td style="white-space: nowrap;">cascade</td><td style="white-space: nowrap;">boolean</td><td >учитывать унаследованные таблицы</td><td class="td-align-center"></td><td class="td-align-center">true</td></tr>
+  </tbody>
 </table>
 <br>
-Примеры использования:<br>
+Примеры использования<br>
 <div class="div-source-code border-color-div-source-code" style="height: 246px;">
 <pre><span class="color-source-sql-keyword">select</span> * <span class="color-source-sql-keyword">from</span> example.document_at_timestamp(now()-<span class="color-source-sql-keyword">interval</span> <span class="color-source-sql-string">'1 hour'</span>);
 
@@ -1026,18 +1113,19 @@ cсылка на общую транзацию - изменения в друг�
 
 
 <a id="hist_disable"></a>
-<p style="font-size:larger;"><b>pghist.hist_disable</b>(schema, table_name)</p>
-<br>
+<h3 style="font-size:larger; padding: 5px 0px 5px 5px; display: inline;">pghist.hist_disable</h3><span style="font-size:larger;">(schema, table_name)</span><br><br>
 Процедура выключает ведение истории изменений для указанной таблицы, удаляет необходимые объекты
 <br>
-<br>
-Параметры:<br>
-<table>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">schema</td><td style="width: 5px;"></td><td style="white-space: nowrap;">name</td><td style="text-align: center; width: 30px;">-</td><td>схема таблицы (необязательный)</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">table_name</td><td style="width: 5px;"></td><td style="white-space: nowrap;">name</td><td style="text-align: center; width: 30px;">-</td><td>имя таблицы</td></tr>
+<br>Параметры<br>
+<table class="table-doc border-color-table">
+  <thead><tr class="tr-header background-tr-header"><td>Наименование</td><td>Тип</td><td>Описание</td><td>Обязательный</td><td>По умолчанию</td></tr></thead>
+  <tbody>
+    <tr><td style="white-space: nowrap;">schema</td><td style="white-space: nowrap;">name</td><td >схема таблицы</td><td class="td-align-center"></td><td class="td-align-center">public</td></tr>
+    <tr class="background-tr-even"><td style="white-space: nowrap;">table_name</td><td style="white-space: nowrap;">name</td><td >имя таблицы</td><td class="td-align-center">&#x2714;</td><td class="td-align-center"></td></tr>
+  </tbody>
 </table>
 <br>
-Примеры использования:<br>
+Примеры использования<br>
 <div class="div-source-code border-color-div-source-code" style="height: 66px;">
 <pre><span class="color-source-sql-keyword">call</span> pghist.hist_disable(<span class="color-source-sql-string">'document'</span>);
 <span class="color-source-sql-keyword">call</span> pghist.hist_disable(<span class="color-source-sql-string">'example'</span>, <span class="color-source-sql-string">'invoice'</span>);
@@ -1049,20 +1137,21 @@ cсылка на общую транзацию - изменения в друг�
 
 
 <a id="hist_expression_desc"></a>
-<p style="font-size:larger;"><b>SQL-выражения описаний</b></p>
+<h3 style="font-size:larger; padding: 5px 0px 5px 5px; display: inline;">SQL-выражения описаний</h3><span style="font-size:larger;">(schema, table, column_name, expression)</span><br><br>
+<h3>pghist.hist_expression_row_desc</h3>(schema, table_name, expression)<br><h3>pghist.hist_expression_value_desc</h3>(schema, table_name, column_name, expression)<br><br>Процедуры устанавливают выражение для описания строки/значения поля, в выражении доступна переменная <em>$1</em> с строкой/значением поля<br><br><br><h3>pghist.hist_expression_row_desc_current</h3>(schema, table_name)<br><h3>pghist.hist_expression_value_desc_current</h3>(schema, table_name, column_name)<br><br>Функции возвращают текущее выражение для описания строки/значения поля<br><br><br><h3>pghist.hist_expression_row_desc_default</h3>(schema, table_name)<br><h3>pghist.hist_expression_value_desc_default</h3>(schema, table_name, column_name)<br><br>Функции возвращают выражение по умолчанию для описания строки/значения поля. Для строки возвращается комментарий таблицы с первичным ключом, для столбца, являющегося внешним ключом, - первое текстовое поле связанной таблицы<br>
 <br>
-<b>pghist.hist_expression_row_desc</b>(schema, table_name, expression)<br><b>pghist.hist_expression_value_desc</b>(schema, table_name, column_name, expression)<br><br>Процедуры устанавливают выражение для описания строки/значения поля, в выражении доступна переменная <em>$1</em> c строкой/значением поля<br><br><br><b>pghist.hist_expression_row_desc_current</b>(schema, table_name)<br><b>pghist.hist_expression_value_desc_current</b>(schema, table_name, column_name)<br><br>Функции возвращают текущее выражение для описания строки/значения поля<br><br><br><b>pghist.hist_expression_row_desc_default</b>(schema, table_name)<br><b>pghist.hist_expression_value_desc_default</b>(schema, table_name, column_name)<br><br>Функции возвращают выражение по умолчанию для описания строки/значения поля. Для строки возращается комментарий таблицы с первичным ключом, для столбца, являющегося внешним ключом, - первое текстовое поля связанной таблицы<br>
-<br>
-<br>
-Параметры:<br>
-<table>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">schema</td><td style="width: 5px;"></td><td style="white-space: nowrap;">name</td><td style="text-align: center; width: 30px;">-</td><td>схема таблицы</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">table</td><td style="width: 5px;"></td><td style="white-space: nowrap;">name</td><td style="text-align: center; width: 30px;">-</td><td>имя таблицы</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">column_name</td><td style="width: 5px;"></td><td style="white-space: nowrap;">name</td><td style="text-align: center; width: 30px;">-</td><td>имя столбца</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">expression</td><td style="width: 5px;"></td><td style="white-space: nowrap;">varchar</td><td style="text-align: center; width: 30px;">-</td><td>выражение, null отменяет сохраненное описание</td></tr>
+<br>Параметры<br>
+<table class="table-doc border-color-table">
+  <thead><tr class="tr-header background-tr-header"><td>Наименование</td><td>Тип</td><td>Описание</td><td>Обязательный</td><td>По умолчанию</td></tr></thead>
+  <tbody>
+    <tr><td style="white-space: nowrap;">schema</td><td style="white-space: nowrap;">name</td><td >схема таблицы</td><td class="td-align-center">&#x2714;</td><td class="td-align-center"></td></tr>
+    <tr class="background-tr-even"><td style="white-space: nowrap;">table</td><td style="white-space: nowrap;">name</td><td >имя таблицы</td><td class="td-align-center">&#x2714;</td><td class="td-align-center"></td></tr>
+    <tr><td style="white-space: nowrap;">column_name</td><td style="white-space: nowrap;">name</td><td >имя столбца</td><td class="td-align-center">при наличии</td><td class="td-align-center"></td></tr>
+    <tr class="background-tr-even"><td style="white-space: nowrap;">expression</td><td style="white-space: nowrap;">varchar</td><td >SQL-выражение,<br><em>null</em> отменяет сохраненное описание</td><td class="td-align-center">при наличии</td><td class="td-align-center"></td></tr>
+  </tbody>
 </table>
 <br>
-Примеры использования:<br>
+Примеры использования<br>
 <div class="div-source-code border-color-div-source-code" style="height: 138px;">
 <pre><span class="color-source-sql-keyword">call</span> pghist.hist_expression_row_desc(<span class="color-source-sql-string">'example'</span>, <span class="color-source-sql-string">'invoice'</span>, <span class="color-source-sql-string">''</span><span class="color-source-sql-string">'Invoice'</span><span class="color-source-sql-string">''</span>);   
 <span class="color-source-sql-keyword">call</span> pghist.hist_expression_row_desc(<span class="color-source-sql-string">'example'</span>, <span class="color-source-sql-string">'invoice_product'</span>, <span class="color-source-sql-block-border">&dollar;&dollar;</span> <span class="color-source-sql-string">'Row #'</span>||&dollar;1.id||<span class="color-source-sql-string">' / '</span>||(<span class="color-source-sql-keyword">select</span> <span class="color-source-sql-keyword">name</span> <span class="color-source-sql-keyword">from</span> example.product <span class="color-source-sql-keyword">where</span> id=&dollar;1.product_id) <span class="color-source-sql-block-border">&dollar;&dollar;</span>);
@@ -1078,47 +1167,49 @@ cсылка на общую транзацию - изменения в друг�
 
 
 <a id="hist_custom_funcs"></a>
-<p style="font-size:larger;"><b>Функции кастомизации</b></p>
-<br>
+<h3 style="font-size:larger; padding: 5px 0px 5px 5px; display: inline;">Функции кастомизации</h3><br><br>
 Для кастомизации и локализации полей конкретного приложения можно определить собственные функции.<br>Рекомендуется в SQL-менеджере (например, pgAdmin или DBeaver) взять за основу функцию по умолчанию, переопределить ее и сохранить в схеме приложения под другим именем
 <br>
-<br>
-Столбцы, доступные для переопределения:<br>
-<table>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">operation_name</td><td style="width: 5px;"></td><td style="white-space: nowrap;">varchar</td><td style="text-align: center; width: 30px;">-</td><td>наименование операции</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">db_user_name</td><td style="width: 5px;"></td><td style="white-space: nowrap;">varchar</td><td style="text-align: center; width: 30px;">-</td><td>имя пользователя базы данных</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">app_user</td><td style="width: 5px;"></td><td style="white-space: nowrap;">varchar</td><td style="text-align: center; width: 30px;">-</td><td>пользователь приложения</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">app_user_name</td><td style="width: 5px;"></td><td style="white-space: nowrap;">varchar</td><td style="text-align: center; width: 30px;">-</td><td>имя пользователя приложения</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">app_client_addr</td><td style="width: 5px;"></td><td style="white-space: nowrap;">inet</td><td style="text-align: center; width: 30px;">-</td><td>IP адрес клиентского приложения</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">app_client_hostname</td><td style="width: 5px;"></td><td style="white-space: nowrap;">varchar</td><td style="text-align: center; width: 30px;">-</td><td>имя хоста(компьютера) клиентского приложения</td></tr>
+<br>Столбцы, доступные для переопределения<br>
+<table class="table-doc border-color-table">
+  <thead><tr class="tr-header background-tr-header"><td>Наименование</td><td>Тип</td><td>Описание</td><td>Обязательный</td><td>По умолчанию</td></tr></thead>
+  <tbody>
+    <tr><td style="white-space: nowrap;">operation_name</td><td style="white-space: nowrap;">varchar</td><td >наименование операции</td><td class="td-align-center">&#x2714;</td><td class="td-align-center"></td></tr>
+    <tr class="background-tr-even"><td style="white-space: nowrap;">db_user_name</td><td style="white-space: nowrap;">varchar</td><td >имя пользователя базы данных</td><td class="td-align-center">&#x2714;</td><td class="td-align-center"></td></tr>
+    <tr><td style="white-space: nowrap;">app_user</td><td style="white-space: nowrap;">varchar</td><td >пользователь приложения</td><td class="td-align-center"></td><td class="td-align-center"></td></tr>
+    <tr class="background-tr-even"><td style="white-space: nowrap;">app_user_name</td><td style="white-space: nowrap;">varchar</td><td >имя пользователя приложения</td><td class="td-align-center"></td><td class="td-align-center"></td></tr>
+    <tr><td style="white-space: nowrap;">app_client_addr</td><td style="white-space: nowrap;">inet</td><td >IP-адрес клиентского приложения</td><td class="td-align-center"></td><td class="td-align-center"></td></tr>
+    <tr class="background-tr-even"><td style="white-space: nowrap;">app_client_hostname</td><td style="white-space: nowrap;">varchar</td><td >имя хоста(компьютера) клиентского приложения</td><td class="td-align-center"></td><td class="td-align-center"></td></tr>
+  </tbody>
 </table>
 
-
-<br>
-<p style="font-size:larger;"><b>pghist.hist_column_custom_function</b>(column_name, custom_function)</p>
-<br>
+<br><br>
+<h3 style="font-size:larger; padding: 5px 0px 5px 5px; display: inline;">pghist.hist_column_custom_function</h3><span style="font-size:larger;">(column_name, custom_function)</span><br><br>
 Процедура устанавливает функцию для получения значения поля
 <br>
-<br>
-Параметры:<br>
-<table>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">column_name</td><td style="width: 5px;"></td><td style="white-space: nowrap;">name</td><td style="text-align: center; width: 30px;">-</td><td>имя столбца</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">custom_function</td><td style="width: 5px;"></td><td style="white-space: nowrap;">name</td><td style="text-align: center; width: 30px;">-</td><td>имя функции без параметров</td></tr>
+<br>Параметры<br>
+<table class="table-doc border-color-table">
+  <thead><tr class="tr-header background-tr-header"><td>Наименование</td><td>Тип</td><td>Описание</td><td>Обязательный</td><td>По умолчанию</td></tr></thead>
+  <tbody>
+    <tr><td style="white-space: nowrap;">column_name</td><td style="white-space: nowrap;">name</td><td >имя столбца</td><td class="td-align-center">&#x2714;</td><td class="td-align-center"></td></tr>
+    <tr class="background-tr-even"><td style="white-space: nowrap;">custom_function</td><td style="white-space: nowrap;">name</td><td >имя функции без параметров</td><td class="td-align-center"></td><td class="td-align-center"></td></tr>
+  </tbody>
 </table>
 
-<br>
-<p style="font-size:larger;"><b>pghist.hist_column_custom_function</b>(column_name)</p>
-<br>
+<br><br>
+<h3 style="font-size:larger; padding: 5px 0px 5px 5px; display: inline;">pghist.hist_column_custom_function</h3><span style="font-size:larger;">(column_name)</span><br><br>
 Функция возвращает текущую функцию для получения значения поля
 <br>
-<br>
-Параметр:<br>
-<table>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">column_name</td><td style="width: 5px;"></td><td style="white-space: nowrap;">name</td><td style="text-align: center; width: 30px;">-</td><td>имя столбца</td></tr>
+<br>Параметр<br>
+<table class="table-doc border-color-table">
+  <thead><tr class="tr-header background-tr-header"><td>Наименование</td><td>Тип</td><td>Описание</td><td>Обязательный</td><td>По умолчанию</td></tr></thead>
+  <tbody>
+    <tr><td style="white-space: nowrap;">column_name</td><td style="white-space: nowrap;">name</td><td >имя столбца</td><td class="td-align-center">&#x2714;</td><td class="td-align-center"></td></tr>
+  </tbody>
 </table>
 
-<br>
-Пример:<br>
+<br><br>
+Пример<br>
 <div class="div-source-code border-color-div-source-code" style="height: 175px;">
 <pre><span class="color-source-sql-keyword">select</span> pghist.hist_column_custom_function_current(<span class="color-source-sql-string">'db_user_name'</span>);
 
@@ -1137,23 +1228,23 @@ cсылка на общую транзацию - изменения в друг�
 
 
 <a id="hist_table"></a>
-<p style="font-size:larger;"><b>Таблица истории pghist.data$[schema]_[table]</b></p>
-<br>
+<h3 style="font-size:larger; padding: 5px 0px 5px 5px; display: inline;">Таблица истории pghist.data$[schema]_[table]</h3><br><br>
 При включении истории дополнительно к основной таблице создается таблица истории, разработчику (владельцу основной таблицы) доступна через представление <a href="#view_hist">[schema].[table]_hist</a>
 <br>
-<br>
-Столбцы:<br>
-<table>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">hist_statement_id</td><td style="width: 5px;"></td><td style="white-space: nowrap;">bigint</td><td style="text-align: center; width: 30px;">-</td><td>ID SQL-выражения, ссылается на таблицу pghist.hist_statement</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">hist_row_num</td><td style="width: 5px;"></td><td style="white-space: nowrap;">int</td><td style="text-align: center; width: 30px;">-</td><td>номер строки в наборе данных, который изменяет SQL-выражения</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">hist_update_columns</td><td style="width: 5px;"></td><td style="white-space: nowrap;">name[]</td><td style="text-align: center; width: 30px;">-</td><td>список обновленных столбцов для операции UPDATE</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">[primary key column(s)]</td><td style="width: 5px;"></td><td style="white-space: nowrap;"></td><td style="text-align: center; width: 30px;">-</td><td>значение первичного ключа (может быть несколько)</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">[column(s) of fkey on master table]</td><td style="width: 5px;"></td><td style="white-space: nowrap;"></td><td style="text-align: center; width: 30px;">-</td><td>значение внешнего ключа на мастер-таблицу (необязательный, может быть несколько)</td></tr>
-  <tr><td style="width: 10px;"></td><td style="white-space: nowrap;">[column...]_old</td><td style="width: 5px;"></td><td style="white-space: nowrap;"></td><td style="text-align: center; width: 30px;">-</td><td>старое значение для каждого столбца таблицы [schema].[table]</td></tr>
+<br>Столбцы<br>
+<table class="table-doc border-color-table">
+  <thead><tr class="tr-header background-tr-header"><td>Наименование</td><td>Тип</td><td>Описание</td><td>Обязательный</td><td>По умолчанию</td></tr></thead>
+  <tbody>
+    <tr><td style="white-space: nowrap;">hist_statement_id</td><td style="white-space: nowrap;">bigint</td><td >ID SQL-выражения, ссылается на таблицу pghist.hist_statement</td><td class="td-align-center">&#x2714;</td><td class="td-align-center"></td></tr>
+    <tr class="background-tr-even"><td style="white-space: nowrap;">hist_row_num</td><td style="white-space: nowrap;">int</td><td >номер строки в наборе данных, который изменяет SQL-выражения</td><td class="td-align-center">&#x2714;</td><td class="td-align-center"></td></tr>
+    <tr><td style="white-space: nowrap;">hist_update_columns</td><td style="white-space: nowrap;">name[]</td><td >список обновленных столбцов для операции UPDATE</td><td class="td-align-center"></td><td class="td-align-center"></td></tr>
+    <tr class="background-tr-even"><td style="white-space: nowrap;">[primary key column(s)]</td><td style="white-space: nowrap;"></td><td >значения первичного ключа</td><td class="td-align-center">&#x2714;</td><td class="td-align-center"></td></tr>
+    <tr><td style="white-space: nowrap;">[column(s) of fkey on master table]</td><td style="white-space: nowrap;"></td><td >значения внешнего ключа на мастер-таблицу</td><td class="td-align-center"></td><td class="td-align-center"></td></tr>
+    <tr class="background-tr-even"><td style="white-space: nowrap;">[column...]_old</td><td style="white-space: nowrap;"></td><td >старые значения для каждого столбца таблицы [schema].[table]</td><td class="td-align-center"></td><td class="td-align-center"></td></tr>
+  </tbody>
 </table>
-
 <br>
-Пример использования:<br>
+Пример использования<br>
 <div class="div-source-code border-color-div-source-code" style="height: 120px;">
 <pre><span class="color-source-sql-keyword">select</span> *
   <span class="color-source-sql-keyword">from</span> pghist.data&dollar;example_invoice h
@@ -1171,12 +1262,12 @@ cсылка на общую транзацию - изменения в друг�
 <p style="font-size:larger;"><b>Общие таблицы</b></p>
 <br>
 <table>
-  <tr><td style="white-space: nowrap;"><b>pghist.hist_transaction</b></td><td style="text-align: center; width: 30px;">-</td><td style="padding-top: 5px; padding-bottom: 5px;">транзакции</td></tr>
-  <tr><td style="white-space: nowrap;"><b>pghist.hist_query</b></td><td style="text-align: center; width: 30px;">-</td><td style="padding-top: 5px; padding-bottom: 5px;">SQL-запросы</td></tr>
-  <tr><td style="white-space: nowrap;"><b>pghist.hist_statement</b></td><td style="text-align: center; width: 30px;">-</td><td style="padding-top: 5px; padding-bottom: 5px;">SQL-выражения</td></tr>
-  <tr><td style="white-space: nowrap;"><b>pghist.hist_table</b></td><td style="text-align: center; width: 30px;">-</td><td style="padding-top: 5px; padding-bottom: 5px;">таблицы с историей</td></tr>
-  <tr><td style="white-space: nowrap;"><b>pghist.hist_table_column</b></td><td style="text-align: center; width: 30px;">-</td><td style="padding-top: 5px; padding-bottom: 5px;">столбцы таблиц с историей</td></tr>
-  <tr><td style="white-space: nowrap;"><b>pghist.hist_column_custom_function</b></td><td style="text-align: center; width: 30px;">-</td><td style="padding-top: 5px; padding-bottom: 5px;">кастомизированные функции столбцов</td></tr>
+  <tr><td style="white-space: nowrap;"><b>pghist.hist_transaction</b></td><td style="text-align: center; width: 30px;">—</td><td style="padding-top: 5px; padding-bottom: 5px;">транзакции</td></tr>
+  <tr><td style="white-space: nowrap;"><b>pghist.hist_query</b></td><td style="text-align: center; width: 30px;">—</td><td style="padding-top: 5px; padding-bottom: 5px;">SQL-запросы</td></tr>
+  <tr><td style="white-space: nowrap;"><b>pghist.hist_statement</b></td><td style="text-align: center; width: 30px;">—</td><td style="padding-top: 5px; padding-bottom: 5px;">SQL-выражения</td></tr>
+  <tr><td style="white-space: nowrap;"><b>pghist.hist_table</b></td><td style="text-align: center; width: 30px;">—</td><td style="padding-top: 5px; padding-bottom: 5px;">таблицы с историей</td></tr>
+  <tr><td style="white-space: nowrap;"><b>pghist.hist_table_column</b></td><td style="text-align: center; width: 30px;">—</td><td style="padding-top: 5px; padding-bottom: 5px;">столбцы таблиц с историей</td></tr>
+  <tr><td style="white-space: nowrap;"><b>pghist.hist_column_custom_function</b></td><td style="text-align: center; width: 30px;">—</td><td style="padding-top: 5px; padding-bottom: 5px;">кастомизированные функции столбцов</td></tr>
 </table>
 
 
@@ -1185,7 +1276,7 @@ cсылка на общую транзацию - изменения в друг�
 (дата-время транзакции и SQL-выражения, операция, SQL-запрос, пользователь, сессия и т.д.),
 и таблицы с настройками.
 Изменение общих таблиц осуществляется через хранимые процедуры, допускается только чтение. 
-По умолчанию разработчикам (владельцам основных таблицы) общие таблицы недоступны, при необходимости доступ выдается вручную.
+По умолчанию разработчикам (владельцам основных таблиц) общие таблицы недоступны, при необходимости доступ выдается вручную.
 <br>
 <br>
 Таблица истории <a href="#hist_table">pghist.data$[schema]_[table]</a> по полю <em>statement_id</em> ссылается на <em>pghist.hist_statement</em>, которая в свою очередь ссылается на <em>pghist.hist_transaction</em> и <em>pghist.hist_query</em>.
@@ -1210,8 +1301,7 @@ cсылка на общую транзацию - изменения в друг�
 
 
 <a id="pghist_version"></a>
-<p style="font-size:larger;"><b>pghist.pghist_version</b></p>
-<br>
+<h3 style="font-size:larger; padding: 5px 0px 5px 5px; display: inline;">pghist.pghist_version</h3><br><br>
 Функция возвращает версию инструмента
 <br>
 
@@ -1221,8 +1311,7 @@ cсылка на общую транзацию - изменения в друг�
 
 
 <a id="hist_sql_log"></a>
-<p style="font-size:larger;"><b>pghist.hist_sql_log</b></p>
-<br>
+<h3 style="font-size:larger; padding: 5px 0px 5px 5px; display: inline;">pghist.hist_sql_log</h3><br><br>
 Все команды, выполняемые утилитой, записываются в лог-таблицу pghist.hist_sql_log
 <br>
 <br>
